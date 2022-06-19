@@ -1,25 +1,18 @@
 /* tslint:disable: no-shadowed-variable */
 import { assert } from '@amaui/test';
 
-import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../utils/js/test/utils';
+import { evaluate } from '../utils/js/test/utils';
 
 group('@amaui/storage', () => {
-  let browsers: IBrowsers;
-
-  pre(async () => browsers = await startBrowsers());
 
   preTo(async () => {
-    await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'), { browsers });
-  });
-
-  post(async () => {
-    await closeBrowsers(browsers);
+    await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
   });
 
   group('AmauiStorage', () => {
 
     preTo(async () => {
-      await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'), { browsers });
+      await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
     });
 
     to('clear', async () => {
@@ -35,7 +28,7 @@ group('@amaui/storage', () => {
         window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session');
 
         return Object.keys(window.localStorage);
-      }, { browsers });
+      });
       const values = [...valueBrowsers];
 
       values.forEach(value => {
@@ -48,13 +41,13 @@ group('@amaui/storage', () => {
   group('options', () => {
 
     preTo(async () => {
-      await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'), { browsers });
+      await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
     });
 
     group('variant', () => {
 
       preTo(async () => {
-        await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'), { browsers });
+        await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
       });
 
       to('default', async () => {
@@ -64,7 +57,7 @@ group('@amaui/storage', () => {
           amauiStorage.add('a', 4);
 
           return [amauiStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
-        }, { browsers });
+        });
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -79,7 +72,7 @@ group('@amaui/storage', () => {
           amauiStorage.add('a', 4);
 
           return [amauiStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
-        }, { browsers });
+        });
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -94,7 +87,7 @@ group('@amaui/storage', () => {
           amauiStorage.add('a', 4);
 
           return [amauiStorage.storage === window.sessionStorage, window.sessionStorage.getItem('AMAUI_a')];
-        }, { browsers });
+        });
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -107,7 +100,7 @@ group('@amaui/storage', () => {
     group('storage', () => {
 
       preTo(async () => {
-        await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'), { browsers });
+        await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
       });
 
       to('default', async () => {
@@ -117,7 +110,7 @@ group('@amaui/storage', () => {
           amauiStorage.add('a', 4);
 
           return [amauiStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
-        }, { browsers });
+        });
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -132,7 +125,7 @@ group('@amaui/storage', () => {
           amauiStorage.add('a', 4);
 
           return [amauiStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
-        }, { browsers });
+        });
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -147,7 +140,7 @@ group('@amaui/storage', () => {
           amauiStorage.add('a', 4);
 
           return [amauiStorage.storage === window.sessionStorage, window.sessionStorage.getItem('AMAUI_a')];
-        }, { browsers });
+        });
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -160,11 +153,11 @@ group('@amaui/storage', () => {
     group('namespace', () => {
 
       preTo(async () => {
-        await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'), { browsers });
+        await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
       });
 
       to('default', async () => {
-        const valueBrowsers = await evaluate((window: any) => new window.AmauiStorage().namespace, { browsers });
+        const valueBrowsers = await evaluate((window: any) => new window.AmauiStorage().namespace,);
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -173,7 +166,7 @@ group('@amaui/storage', () => {
       });
 
       to('namespace', async () => {
-        const valueBrowsers = await evaluate((window: any) => new window.AmauiStorage({ namespace: 'a' }).namespace, { browsers });
+        const valueBrowsers = await evaluate((window: any) => new window.AmauiStorage({ namespace: 'a' }).namespace,);
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -182,7 +175,7 @@ group('@amaui/storage', () => {
       });
 
       to('namespace_separator', async () => {
-        const valueBrowsers = await evaluate((window: any) => new window.AmauiStorage({ namespace_separator: ',' }).namespace, { browsers });
+        const valueBrowsers = await evaluate((window: any) => new window.AmauiStorage({ namespace_separator: ',' }).namespace,);
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -197,7 +190,7 @@ group('@amaui/storage', () => {
           amauiStorage.add('a', 'a');
 
           return Object.keys(window.localStorage);
-        }, { browsers });
+        });
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -212,7 +205,7 @@ group('@amaui/storage', () => {
           amauiStorage.add('a', 'a');
 
           return Object.keys(window.sessionStorage);
-        }, { browsers });
+        });
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -233,7 +226,7 @@ group('@amaui/storage', () => {
       amauiStorage.add('ad', 4);
 
       return amauiStorage.properties;
-    }, { browsers });
+    });
     const values = [...valueBrowsers];
 
     values.forEach(value => {
@@ -250,7 +243,7 @@ group('@amaui/storage', () => {
       amauiStorage.add('ad', 4);
 
       return amauiStorage.values;
-    }, { browsers });
+    });
     const values = [...valueBrowsers];
 
     values.forEach(value => {
@@ -267,7 +260,7 @@ group('@amaui/storage', () => {
       amauiStorage.add('ad', 4);
 
       return amauiStorage.items;
-    }, { browsers });
+    });
     const values = [...valueBrowsers];
 
     values.forEach(value => {
@@ -292,7 +285,7 @@ group('@amaui/storage', () => {
       amauiStorage.clear;
 
       return Object.keys(window.localStorage);
-    }, { browsers });
+    });
     const values = [...valueBrowsers];
 
     values.forEach(value => {
@@ -307,7 +300,7 @@ group('@amaui/storage', () => {
       amauiStorage.add('a', 'a');
 
       return amauiStorage.get('a');
-    }, { browsers });
+    });
     const values = [...valueBrowsers];
 
     values.forEach(value => {
@@ -322,7 +315,7 @@ group('@amaui/storage', () => {
       amauiStorage.add('a', 'a');
 
       return amauiStorage.has('a');
-    }, { browsers });
+    });
     const values = [...valueBrowsers];
 
     values.forEach(value => {
@@ -333,7 +326,7 @@ group('@amaui/storage', () => {
   group('add', () => {
 
     preTo(async () => {
-      await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'), { browsers });
+      await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
     });
 
     to('add', async () => {
@@ -343,7 +336,7 @@ group('@amaui/storage', () => {
         amauiStorage.add('a', 'a');
 
         return [amauiStorage.get('a'), Object.keys(window.localStorage)[0]];
-      }, { browsers });
+      });
       const values = [...valueBrowsers];
 
       values.forEach(value => {
@@ -361,7 +354,7 @@ group('@amaui/storage', () => {
         amauiStorage.add('ao', { a: 'a' });
 
         return [amauiStorage.get('a'), amauiStorage.get('ay'), amauiStorage.get('au'), window.localStorage['AMAUI_au'], amauiStorage.get('ao')];
-      }, { browsers });
+      });
       const values = [...valueBrowsers];
 
       values.forEach(value => {
@@ -379,7 +372,7 @@ group('@amaui/storage', () => {
       amauiStorage.update('a', 'a');
 
       return [amauiStorage.get('a'), Object.keys(window.localStorage)[0]];
-    }, { browsers });
+    });
     const values = [...valueBrowsers];
 
     values.forEach(value => {
@@ -396,7 +389,7 @@ group('@amaui/storage', () => {
       amauiStorage.remove('a');
 
       return [amauiStorage.get('a'), Object.keys(window.localStorage)];
-    }, { browsers });
+    });
     const values = [...valueBrowsers];
 
     values.forEach(value => {
