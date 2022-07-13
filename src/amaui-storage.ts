@@ -1,4 +1,7 @@
-import { isEnvironment, merge, stringify, parse } from '@amaui/utils';
+import isEnvironment from '@amaui/utils/isEnvironment';
+import stringify from '@amaui/utils/stringify';
+import parse from '@amaui/utils/parse';
+import merge from '@amaui/utils/merge';
 
 export type TVariant = 'local' | 'session';
 

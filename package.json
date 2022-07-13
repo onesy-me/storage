@@ -1,6 +1,6 @@
 {
   "name": "@amaui/storage",
-  "version": "1.0.11111",
+  "version": "1.0.11114",
   "description": "Storage",
   "repository": "https://github.com/amaui-org/amaui-storage.git",
   "author": "Lazar <lazareric.com@gmail.com>",
@@ -76,7 +76,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org"
   },
   "sideEffects": false,
   "engines": {
