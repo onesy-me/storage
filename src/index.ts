@@ -1,3 +1,2 @@
-import { default as AmauiStorage } from './amaui-storage';
 
-export default AmauiStorage;
+export { default } from './amaui-storage';
