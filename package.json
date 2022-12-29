@@ -1,6 +1,6 @@
 {
   "name": "@amaui/storage",
-  "version": "1.0.11117",
+  "version": "1.0.11140",
   "description": "Storage",
   "repository": "https://github.com/amaui-org/amaui-storage.git",
   "author": "Lazar <lazareric2@gmail.com>",
@@ -35,7 +35,7 @@
     "test": "yarn lint && yarn type && yarn build && yarn test:pre && yarn cov && yarn test:post"
   },
   "dependencies": {
-    "@amaui/utils": "^1.0.11411",
+    "@amaui/utils": "^1.0.11450",
     "@babel/runtime": "^7.18.3"
   },
   "devDependencies": {
