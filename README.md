@@ -39,11 +39,7 @@
 ### Add
 
 ```sh
-  // yarn
   yarn add @amaui/storage
-
-  // npm
-  npm install @amaui/storage
 ```
 
 ### Use
