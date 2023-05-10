@@ -1,2 +1,2 @@
 
-export { default } from './amaui-storage';
+export { default } from './AmauiStorage';

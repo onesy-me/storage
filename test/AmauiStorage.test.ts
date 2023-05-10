@@ -3,7 +3,7 @@ import { assert } from '@amaui/test';
 
 import { evaluate } from '../utils/js/test/utils';
 
-group('@amaui/storage', () => {
+group('AmauiStorage', () => {
 
   preTo(async () => {
     await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
