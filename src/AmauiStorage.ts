@@ -74,7 +74,7 @@ class AmauiStorage {
     return items;
   }
 
-  public get clear(): void {
+  public clear(): void {
     return this.properties
       .filter(value => (
         this.removeNotAllowed.indexOf(value) === -1 ||
