@@ -77,8 +77,8 @@ class AmauiStorage {
   public clear(): void {
     return this.properties
       .filter(value => (
-        this.removeNotAllowed.indexOf(value) === -1 ||
-        this.removeNotAllowed.indexOf(this.propertyOriginal(value)) === -1
+        !this.removeNotAllowed.includes(value) &&
+        !this.removeNotAllowed.includes(this.propertyOriginal(value))
       ))
       .forEach(value => this.remove(value));
   }
