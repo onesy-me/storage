@@ -2,7 +2,7 @@
   "name": "@onesy/storage",
   "version": "1.0.0",
   "description": "Storage",
-  "repository": "https://github.com/onesy-org/onesy-storage.git",
+  "repository": "https://github.com/onesy-me/storage.git",
   "author": "Lazar <lazareric2@gmail.com>",
   "license": "MIT",
   "private": false,
