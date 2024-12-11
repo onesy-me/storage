@@ -1,7 +1,7 @@
-import isEnvironment from '@amaui/utils/isEnvironment';
-import stringify from '@amaui/utils/stringify';
-import parse from '@amaui/utils/parse';
-import merge from '@amaui/utils/merge';
+import isEnvironment from '@onesy/utils/isEnvironment';
+import stringify from '@onesy/utils/stringify';
+import parse from '@onesy/utils/parse';
+import merge from '@onesy/utils/merge';
 
 export type TVariant = 'local' | 'session';
 
@@ -14,11 +14,11 @@ export interface IOptions {
 
 const optionsDefault: IOptions = {
   variant: 'local',
-  namespace: 'amaui',
+  namespace: 'onesy',
   namespace_separator: '_',
 };
 
-class AmauiStorage {
+class OnesyStorage {
   public options: IOptions;
   public storage: Storage;
   public removeNotAllowed: string[] = [];
@@ -113,4 +113,4 @@ class AmauiStorage {
   }
 }
 
-export default AmauiStorage;
+export default OnesyStorage;

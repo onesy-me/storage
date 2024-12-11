@@ -1,31 +1,31 @@
 /* tslint:disable: no-shadowed-variable */
-import { assert } from '@amaui/test';
+import { assert } from '@onesy/test';
 
 import { evaluate } from '../utils/js/test/utils';
 
-group('AmauiStorage', () => {
+group('OnesyStorage', () => {
 
   preTo(async () => {
-    await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
+    await evaluate((window: any) => window.OnesyStorage.clear('local') && window.OnesyStorage.clear('session'),);
   });
 
-  group('AmauiStorage', () => {
+  group('OnesyStorage', () => {
 
     preTo(async () => {
-      await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
+      await evaluate((window: any) => window.OnesyStorage.clear('local') && window.OnesyStorage.clear('session'),);
     });
 
     to('clear', async () => {
       const valueBrowsers = await evaluate((window: any) => {
-        const amauiStorage = new window.AmauiStorage();
+        const onesyStorage = new window.OnesyStorage();
 
-        amauiStorage.add('a', 'a');
-        amauiStorage.add('ab', 4);
-        amauiStorage.add('ad', 4);
+        onesyStorage.add('a', 'a');
+        onesyStorage.add('ab', 4);
+        onesyStorage.add('ad', 4);
 
         window.localStorage.setItem('a', 'a');
 
-        window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session');
+        window.OnesyStorage.clear('local') && window.OnesyStorage.clear('session');
 
         return Object.keys(window.localStorage);
       });
@@ -41,22 +41,22 @@ group('AmauiStorage', () => {
   group('options', () => {
 
     preTo(async () => {
-      await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
+      await evaluate((window: any) => window.OnesyStorage.clear('local') && window.OnesyStorage.clear('session'),);
     });
 
     group('variant', () => {
 
       preTo(async () => {
-        await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
+        await evaluate((window: any) => window.OnesyStorage.clear('local') && window.OnesyStorage.clear('session'),);
       });
 
       to('default', async () => {
         const valueBrowsers = await evaluate((window: any) => {
-          const amauiStorage = new window.AmauiStorage();
+          const onesyStorage = new window.OnesyStorage();
 
-          amauiStorage.add('a', 4);
+          onesyStorage.add('a', 4);
 
-          return [amauiStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
+          return [onesyStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
         });
         const values = [...valueBrowsers];
 
@@ -67,11 +67,11 @@ group('AmauiStorage', () => {
 
       to('local', async () => {
         const valueBrowsers = await evaluate((window: any) => {
-          const amauiStorage = new window.AmauiStorage({ variant: 'local' });
+          const onesyStorage = new window.OnesyStorage({ variant: 'local' });
 
-          amauiStorage.add('a', 4);
+          onesyStorage.add('a', 4);
 
-          return [amauiStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
+          return [onesyStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
         });
         const values = [...valueBrowsers];
 
@@ -82,11 +82,11 @@ group('AmauiStorage', () => {
 
       to('session', async () => {
         const valueBrowsers = await evaluate((window: any) => {
-          const amauiStorage = new window.AmauiStorage({ variant: 'session' });
+          const onesyStorage = new window.OnesyStorage({ variant: 'session' });
 
-          amauiStorage.add('a', 4);
+          onesyStorage.add('a', 4);
 
-          return [amauiStorage.storage === window.sessionStorage, window.sessionStorage.getItem('AMAUI_a')];
+          return [onesyStorage.storage === window.sessionStorage, window.sessionStorage.getItem('AMAUI_a')];
         });
         const values = [...valueBrowsers];
 
@@ -100,16 +100,16 @@ group('AmauiStorage', () => {
     group('storage', () => {
 
       preTo(async () => {
-        await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
+        await evaluate((window: any) => window.OnesyStorage.clear('local') && window.OnesyStorage.clear('session'),);
       });
 
       to('default', async () => {
         const valueBrowsers = await evaluate((window: any) => {
-          const amauiStorage = new window.AmauiStorage();
+          const onesyStorage = new window.OnesyStorage();
 
-          amauiStorage.add('a', 4);
+          onesyStorage.add('a', 4);
 
-          return [amauiStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
+          return [onesyStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
         });
         const values = [...valueBrowsers];
 
@@ -120,11 +120,11 @@ group('AmauiStorage', () => {
 
       to('local', async () => {
         const valueBrowsers = await evaluate((window: any) => {
-          const amauiStorage = new window.AmauiStorage({ storage: window.localStorage });
+          const onesyStorage = new window.OnesyStorage({ storage: window.localStorage });
 
-          amauiStorage.add('a', 4);
+          onesyStorage.add('a', 4);
 
-          return [amauiStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
+          return [onesyStorage.storage === window.localStorage, window.localStorage.getItem('AMAUI_a')];
         });
         const values = [...valueBrowsers];
 
@@ -135,11 +135,11 @@ group('AmauiStorage', () => {
 
       to('session', async () => {
         const valueBrowsers = await evaluate((window: any) => {
-          const amauiStorage = new window.AmauiStorage({ storage: window.sessionStorage });
+          const onesyStorage = new window.OnesyStorage({ storage: window.sessionStorage });
 
-          amauiStorage.add('a', 4);
+          onesyStorage.add('a', 4);
 
-          return [amauiStorage.storage === window.sessionStorage, window.sessionStorage.getItem('AMAUI_a')];
+          return [onesyStorage.storage === window.sessionStorage, window.sessionStorage.getItem('AMAUI_a')];
         });
         const values = [...valueBrowsers];
 
@@ -153,11 +153,11 @@ group('AmauiStorage', () => {
     group('namespace', () => {
 
       preTo(async () => {
-        await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
+        await evaluate((window: any) => window.OnesyStorage.clear('local') && window.OnesyStorage.clear('session'),);
       });
 
       to('default', async () => {
-        const valueBrowsers = await evaluate((window: any) => new window.AmauiStorage().namespace,);
+        const valueBrowsers = await evaluate((window: any) => new window.OnesyStorage().namespace,);
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -166,7 +166,7 @@ group('AmauiStorage', () => {
       });
 
       to('namespace', async () => {
-        const valueBrowsers = await evaluate((window: any) => new window.AmauiStorage({ namespace: 'a' }).namespace,);
+        const valueBrowsers = await evaluate((window: any) => new window.OnesyStorage({ namespace: 'a' }).namespace,);
         const values = [...valueBrowsers];
 
         values.forEach(value => {
@@ -175,19 +175,19 @@ group('AmauiStorage', () => {
       });
 
       to('namespace_separator', async () => {
-        const valueBrowsers = await evaluate((window: any) => new window.AmauiStorage({ namespace_separator: ',' }).namespace,);
+        const valueBrowsers = await evaluate((window: any) => new window.OnesyStorage({ namespace_separator: ',' }).namespace,);
         const values = [...valueBrowsers];
 
         values.forEach(value => {
-          assert(value).eq('amaui,');
+          assert(value).eq('onesy,');
         });
       });
 
       to('namespace in a localStorage', async () => {
         const valueBrowsers = await evaluate((window: any) => {
-          const amauiStorage = new window.AmauiStorage();
+          const onesyStorage = new window.OnesyStorage();
 
-          amauiStorage.add('a', 'a');
+          onesyStorage.add('a', 'a');
 
           return Object.keys(window.localStorage);
         });
@@ -200,9 +200,9 @@ group('AmauiStorage', () => {
 
       to('namespace in a session', async () => {
         const valueBrowsers = await evaluate((window: any) => {
-          const amauiStorage = new window.AmauiStorage({ variant: 'session' });
+          const onesyStorage = new window.OnesyStorage({ variant: 'session' });
 
-          amauiStorage.add('a', 'a');
+          onesyStorage.add('a', 'a');
 
           return Object.keys(window.sessionStorage);
         });
@@ -219,13 +219,13 @@ group('AmauiStorage', () => {
 
   to('properties', async () => {
     const valueBrowsers = await evaluate((window: any) => {
-      const amauiStorage = new window.AmauiStorage();
+      const onesyStorage = new window.OnesyStorage();
 
-      amauiStorage.add('a', 4);
-      amauiStorage.add('ab', 4);
-      amauiStorage.add('ad', 4);
+      onesyStorage.add('a', 4);
+      onesyStorage.add('ab', 4);
+      onesyStorage.add('ad', 4);
 
-      return amauiStorage.properties;
+      return onesyStorage.properties;
     });
     const values = [...valueBrowsers];
 
@@ -236,13 +236,13 @@ group('AmauiStorage', () => {
 
   to('values', async () => {
     const valueBrowsers = await evaluate((window: any) => {
-      const amauiStorage = new window.AmauiStorage();
+      const onesyStorage = new window.OnesyStorage();
 
-      amauiStorage.add('a', 'a');
-      amauiStorage.add('ab', 4);
-      amauiStorage.add('ad', 4);
+      onesyStorage.add('a', 'a');
+      onesyStorage.add('ab', 4);
+      onesyStorage.add('ad', 4);
 
-      return amauiStorage.values;
+      return onesyStorage.values;
     });
     const values = [...valueBrowsers];
 
@@ -253,13 +253,13 @@ group('AmauiStorage', () => {
 
   to('items', async () => {
     const valueBrowsers = await evaluate((window: any) => {
-      const amauiStorage = new window.AmauiStorage();
+      const onesyStorage = new window.OnesyStorage();
 
-      amauiStorage.add('a', 'a');
-      amauiStorage.add('ab', 4);
-      amauiStorage.add('ad', 4);
+      onesyStorage.add('a', 'a');
+      onesyStorage.add('ab', 4);
+      onesyStorage.add('ad', 4);
 
-      return amauiStorage.items;
+      return onesyStorage.items;
     });
     const values = [...valueBrowsers];
 
@@ -274,15 +274,15 @@ group('AmauiStorage', () => {
 
   to('clear', async () => {
     const valueBrowsers = await evaluate((window: any) => {
-      const amauiStorage = new window.AmauiStorage();
+      const onesyStorage = new window.OnesyStorage();
 
-      amauiStorage.add('a', 'a');
-      amauiStorage.add('ab', 4);
-      amauiStorage.add('ad', 4);
+      onesyStorage.add('a', 'a');
+      onesyStorage.add('ab', 4);
+      onesyStorage.add('ad', 4);
 
       window.localStorage.setItem('a', 'a');
 
-      amauiStorage.clear;
+      onesyStorage.clear;
 
       return Object.keys(window.localStorage);
     });
@@ -295,11 +295,11 @@ group('AmauiStorage', () => {
 
   to('get', async () => {
     const valueBrowsers = await evaluate((window: any) => {
-      const amauiStorage = new window.AmauiStorage();
+      const onesyStorage = new window.OnesyStorage();
 
-      amauiStorage.add('a', 'a');
+      onesyStorage.add('a', 'a');
 
-      return amauiStorage.get('a');
+      return onesyStorage.get('a');
     });
     const values = [...valueBrowsers];
 
@@ -310,11 +310,11 @@ group('AmauiStorage', () => {
 
   to('has', async () => {
     const valueBrowsers = await evaluate((window: any) => {
-      const amauiStorage = new window.AmauiStorage();
+      const onesyStorage = new window.OnesyStorage();
 
-      amauiStorage.add('a', 'a');
+      onesyStorage.add('a', 'a');
 
-      return amauiStorage.has('a');
+      return onesyStorage.has('a');
     });
     const values = [...valueBrowsers];
 
@@ -326,16 +326,16 @@ group('AmauiStorage', () => {
   group('add', () => {
 
     preTo(async () => {
-      await evaluate((window: any) => window.AmauiStorage.clear('local') && window.AmauiStorage.clear('session'),);
+      await evaluate((window: any) => window.OnesyStorage.clear('local') && window.OnesyStorage.clear('session'),);
     });
 
     to('add', async () => {
       const valueBrowsers = await evaluate((window: any) => {
-        const amauiStorage = new window.AmauiStorage();
+        const onesyStorage = new window.OnesyStorage();
 
-        amauiStorage.add('a', 'a');
+        onesyStorage.add('a', 'a');
 
-        return [amauiStorage.get('a'), Object.keys(window.localStorage)[0]];
+        return [onesyStorage.get('a'), Object.keys(window.localStorage)[0]];
       });
       const values = [...valueBrowsers];
 
@@ -346,14 +346,14 @@ group('AmauiStorage', () => {
 
     to('add reference value', async () => {
       const valueBrowsers = await evaluate((window: any) => {
-        const amauiStorage = new window.AmauiStorage();
+        const onesyStorage = new window.OnesyStorage();
 
-        amauiStorage.add('a', 'a');
-        amauiStorage.add('ay', true);
-        amauiStorage.add('au', [1, 4]);
-        amauiStorage.add('ao', { a: 'a' });
+        onesyStorage.add('a', 'a');
+        onesyStorage.add('ay', true);
+        onesyStorage.add('au', [1, 4]);
+        onesyStorage.add('ao', { a: 'a' });
 
-        return [amauiStorage.get('a'), amauiStorage.get('ay'), amauiStorage.get('au'), window.localStorage['AMAUI_au'], amauiStorage.get('ao')];
+        return [onesyStorage.get('a'), onesyStorage.get('ay'), onesyStorage.get('au'), window.localStorage['AMAUI_au'], onesyStorage.get('ao')];
       });
       const values = [...valueBrowsers];
 
@@ -366,12 +366,12 @@ group('AmauiStorage', () => {
 
   to('update', async () => {
     const valueBrowsers = await evaluate((window: any) => {
-      const amauiStorage = new window.AmauiStorage();
+      const onesyStorage = new window.OnesyStorage();
 
-      amauiStorage.add('a', 4);
-      amauiStorage.update('a', 'a');
+      onesyStorage.add('a', 4);
+      onesyStorage.update('a', 'a');
 
-      return [amauiStorage.get('a'), Object.keys(window.localStorage)[0]];
+      return [onesyStorage.get('a'), Object.keys(window.localStorage)[0]];
     });
     const values = [...valueBrowsers];
 
@@ -382,13 +382,13 @@ group('AmauiStorage', () => {
 
   to('remove', async () => {
     const valueBrowsers = await evaluate((window: any) => {
-      const amauiStorage = new window.AmauiStorage();
+      const onesyStorage = new window.OnesyStorage();
 
-      amauiStorage.add('a', 'a');
+      onesyStorage.add('a', 'a');
 
-      amauiStorage.remove('a');
+      onesyStorage.remove('a');
 
-      return [amauiStorage.get('a'), Object.keys(window.localStorage)];
+      return [onesyStorage.get('a'), Object.keys(window.localStorage)];
     });
     const values = [...valueBrowsers];
 

@@ -1,2 +1,2 @@
 
-export { default } from './AmauiStorage';
+export { default } from './OnesyStorage';

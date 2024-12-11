@@ -4,11 +4,11 @@
 
 <p align='center'>
   <a target='_blank' rel='noopener noreferrer' href='#'>
-    <img src='utils/images/logo.svg' alt='amaui logo' />
+    <img src='utils/images/logo.svg' alt='onesy logo' />
   </a>
 </p>
 
-<h1 align='center'>amaui Storage</h1>
+<h1 align='center'>onesy Storage</h1>
 
 <p align='center'>
   Storage
@@ -39,30 +39,30 @@
 ### Add
 
 ```sh
-yarn add @amaui/storage
+yarn add @onesy/storage
 ```
 
 ### Use
 
 ```javascript
-  import AmauiStorage from '@amaui/storage';
+  import OnesyStorage from '@onesy/storage';
 
-  const amauiStorage = new AmauiStorage();
+  const onesyStorage = new OnesyStorage();
 
   const value = { a: 4 };
 
   // Add
-  amauiStorage.add('a', value);
+  onesyStorage.add('a', value);
 
   // Get
-  amauiStorage.get('a');
+  onesyStorage.get('a');
 
   // { a: 4 }
 
   // Remove
-  amauiStorage.remove('a');
+  onesyStorage.remove('a');
 
-  amauiStorage.get('a');
+  onesyStorage.get('a');
 
   // null
 ```
